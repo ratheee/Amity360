@@ -224,6 +224,7 @@ export const api = {
       return mutate(db => {
         const resource: Resource = { ...input, id: uid(), uploadedBy: actor.name, createdAt: new Date().toISOString() }
         db.resources.unshift(resource)
+        notify(db, usersWithRole(db, 'student'), 'New study material', `${resource.title} (${resource.subject})`, 'resources')
         return resource
       })
     },
