@@ -1,5 +1,5 @@
 import { KeyRound, LogOut, Save } from 'lucide-react'
-import { useAuth, useCurrentUser } from '../context/AuthContext'
+import { useAuth, useCurrentUser } from '../context/auth'
 import { useToast } from '../context/ToastContext'
 import { useForm } from '../hooks/useForm'
 import { api } from '../services/api'

@@ -1,17 +1,7 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
+import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react'
 import { api, type RegisterInput } from '../services/api'
 import type { User } from '../types'
-
-interface AuthState {
-  user: User | null
-  loading: boolean
-  login: (email: string, password: string) => Promise<User>
-  register: (input: RegisterInput) => Promise<User>
-  logout: () => void
-  setUser: (user: User) => void
-}
-
-const AuthContext = createContext<AuthState | null>(null)
+import { AuthContext } from './auth'
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
@@ -40,17 +30,4 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const value = useMemo(() => ({ user, loading, login, register, logout, setUser }), [user, loading, login, register, logout])
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
-}
-
-export function useAuth() {
-  const context = useContext(AuthContext)
-  if (!context) throw new Error('useAuth must be used inside AuthProvider')
-  return context
-}
-
-/** For pages rendered only behind the auth guard, where a user is guaranteed. */
-export function useCurrentUser() {
-  const { user } = useAuth()
-  if (!user) throw new Error('useCurrentUser called without a signed-in user')
-  return user
 }

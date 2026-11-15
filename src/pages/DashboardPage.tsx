@@ -2,7 +2,7 @@ import { CalendarClock, ChevronRight, CircleAlert, UtensilsCrossed } from 'lucid
 import type { MealType, ModuleKey } from '../types'
 import { canAccess, modules } from '../data/modules'
 import { announcementCategoryLabels, mealLabels, mealOrder, mealTimes } from '../data/labels'
-import { useCurrentUser } from '../context/AuthContext'
+import { useCurrentUser } from '../context/auth'
 import { useAsync } from '../hooks/useAsync'
 import { api } from '../services/api'
 import { Badge, EmptyState, Panel, StatusBadge } from '../components/ui'

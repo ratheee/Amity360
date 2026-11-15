@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import type { Complaint, ComplaintStatus } from '../types'
 import { complaintCategoryLabels, complaintStatusLabels } from '../data/labels'
-import { useCurrentUser } from '../context/AuthContext'
+import { useCurrentUser } from '../context/auth'
 import { useToast } from '../context/ToastContext'
 import { api } from '../services/api'
 import { Button, Field, Modal, PriorityBadge, StatusBadge } from './ui'

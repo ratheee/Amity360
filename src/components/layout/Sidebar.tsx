@@ -2,7 +2,7 @@ import { LogOut, X } from 'lucide-react'
 import type { ModuleKey, Route } from '../../types'
 import { canAccess, modules } from '../../data/modules'
 import { roleLabels } from '../../data/labels'
-import { useAuth, useCurrentUser } from '../../context/AuthContext'
+import { useAuth, useCurrentUser } from '../../context/auth'
 import { initials } from '../../utils/format'
 
 interface SidebarProps {

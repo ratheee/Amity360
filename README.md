@@ -62,6 +62,7 @@ src/
 │   ├── ui/                  # Button, Field, Modal, Badge, StarRating, Panel, PageHeader, Tabs, StatCard, States
 │   └── ComplaintDetailModal.tsx   # Shared by Complaints & Admin pages
 ├── context/
+│   ├── auth.ts              # Auth context + useAuth / useCurrentUser hooks
 │   ├── AuthContext.tsx      # Current user, login/register/logout
 │   └── ToastContext.tsx     # Toast notifications
 ├── hooks/
