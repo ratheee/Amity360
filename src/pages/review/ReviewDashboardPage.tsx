@@ -1,17 +1,21 @@
 import { Check, ChevronRight, Circle, LoaderCircle } from 'lucide-react'
 import type { ModuleKey } from '../../types'
 import { modules } from '../../data/modules'
+import { announcementCategoryLabels } from '../../data/labels'
 import { phases, techStack } from '../../data/plan'
 import { PROJECT_PROGRESS } from '../../config'
 import { useCurrentUser } from '../../context/AuthContext'
+import { useAsync } from '../../hooks/useAsync'
+import { api } from '../../services/api'
 import { Badge, Panel } from '../../components/ui'
-import { greeting } from '../../utils/format'
+import { greeting, timeAgo } from '../../utils/format'
 
 const phaseIcons = { done: Check, current: LoaderCircle, upcoming: Circle }
 
 /** Dashboard shown in review mode: module overview, project progress and tech stack. */
 export function ReviewDashboardPage({ navigate }: { navigate: (key: ModuleKey) => void }) {
   const user = useCurrentUser()
+  const notices = useAsync(() => api.announcements.list(), [])
   const today = new Date()
 
   return (
@@ -33,6 +37,15 @@ export function ReviewDashboardPage({ navigate }: { navigate: (key: ModuleKey) =
           </button>
         ))}
       </section>
+
+      <Panel eyebrow="NOTICES" title="Campus notices" className="announcements review-notices">
+        {notices.data?.slice(0, 3).map(item => (
+          <article key={item.id}>
+            <div className={`notice-mark ${item.pinned ? 'gold' : ''}`} />
+            <div><span>{announcementCategoryLabels[item.category]} · {timeAgo(item.createdAt)}</span><strong>{item.title}</strong></div>
+          </article>
+        ))}
+      </Panel>
 
       <div className="two-col">
         <Panel eyebrow="PROJECT PROGRESS" title="Development roadmap" action={<span className="percent">{PROJECT_PROGRESS}%</span>}>

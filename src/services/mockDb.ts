@@ -13,7 +13,7 @@ export interface StoredUser extends User {
 }
 
 export interface Database {
-  version: 1
+  version: 2
   ticketCounter: number
   users: StoredUser[]
   feedback: MessFeedback[]
@@ -38,7 +38,7 @@ export const createStoredUser = async (user: User, password: string): Promise<St
 }
 
 const createSeed = async (): Promise<Database> => ({
-  version: 1,
+  version: 2,
   ticketCounter: 1000 + seedComplaints.length,
   users: await Promise.all(seedUsers.map(({ password, ...user }) => createStoredUser(user, password))),
   feedback: seedFeedback,
@@ -54,7 +54,7 @@ const load = async () => {
     const raw = localStorage.getItem(STORAGE_KEY)
     if (raw) {
       const parsed = JSON.parse(raw) as Database
-      if (parsed.version === 1) return parsed
+      if (parsed.version === 2) return parsed
     }
   } catch {
     // Corrupt or unavailable storage: fall through and reseed.
