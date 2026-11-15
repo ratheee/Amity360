@@ -19,7 +19,7 @@ npm run preview    # serve the production build locally
 The app currently ships in **review mode** (`REVIEW_MODE = true` in [src/config.ts](src/config.ts)). In this mode:
 
 - Sign-in, the app layout and the profile page work as normal.
-- The dashboard shows project progress (`PROJECT_PROGRESS`, currently 20%), the development phases and the tech stack.
+- The dashboard shows project progress (`PROJECT_PROGRESS`, currently 30%), the development phases and the tech stack.
 - Every other module opens a design page listing its target users, planned features and workflow (from [src/data/plan.ts](src/data/plan.ts)) instead of the working screen.
 - Every role can open every module page, including the Admin Panel.
 

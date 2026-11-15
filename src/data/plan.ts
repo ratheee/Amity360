@@ -49,8 +49,8 @@ export interface Phase {
 export const phases: Phase[] = [
   { name: 'Planning & requirement analysis', detail: 'Problem study, user roles, scope of 7 modules', status: 'done' },
   { name: 'System & UI design', detail: 'Module workflows, app layout, login and dashboard screens', status: 'done' },
-  { name: 'Frontend development', detail: 'Building each module’s screens in React', status: 'current' },
-  { name: 'Backend & database', detail: 'Node.js / Express APIs with MongoDB', status: 'upcoming' },
+  { name: 'Frontend development', detail: 'All module screens built in React', status: 'done' },
+  { name: 'Backend & database', detail: 'Node.js / Express APIs with MongoDB', status: 'current' },
   { name: 'Integration & testing', detail: 'Connect modules, authentication, testing', status: 'upcoming' },
   { name: 'Deployment', detail: 'Hosting and final presentation', status: 'upcoming' },
 ]

@@ -8,4 +8,4 @@
 export const REVIEW_MODE = true
 
 /** Overall completion shown in review mode. */
-export const PROJECT_PROGRESS = 20
+export const PROJECT_PROGRESS = 30

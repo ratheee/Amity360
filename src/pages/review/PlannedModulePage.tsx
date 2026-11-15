@@ -10,7 +10,7 @@ export function PlannedModulePage({ module }: { module: ModuleKey }) {
 
   return (
     <>
-      <PageHeader module={module} subtitle="Requirement analysis and design completed. Development is scheduled in the next phase." actions={<Badge tone="gold">Designed · In development</Badge>} />
+      <PageHeader module={module} subtitle="Design and frontend completed. Backend integration is scheduled in the next phase." actions={<Badge tone="green">Frontend completed</Badge>} />
 
       <div className="plan-users"><Users /> <span><strong>Users:</strong> {plan.users}</span></div>
 
