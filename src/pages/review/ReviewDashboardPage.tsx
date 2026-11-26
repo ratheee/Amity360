@@ -26,7 +26,7 @@ export function ReviewDashboardPage({ navigate }: { navigate: (key: ModuleKey) =
           <h1>{greeting()}, {user.name.replace(/^(Dr\.|Prof\.)\s*/, '').split(' ')[0]}!</h1>
           <p>Amity 360 – one platform for every campus service.</p>
         </div>
-        <div className="campus-status"><span className="status-dev" /><div><strong>Project status</strong><small>{PROJECT_PROGRESS}% complete · Frontend completed</small></div></div>
+        <div className="campus-status"><span className="status-dev" /><div><strong>Project status</strong><small>{PROJECT_PROGRESS}% complete · Backend next</small></div></div>
       </section>
 
       <section className="quick-grid">

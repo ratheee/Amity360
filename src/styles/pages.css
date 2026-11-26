@@ -38,6 +38,7 @@
 
 /* Generic multi-column layouts */
 .review-notices { margin-bottom: 18px; }
+.welcome-status { display: flex; flex-wrap: wrap; gap: 10px; }
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; align-items: start; }
 .two-col.wide-right { grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); }
 .filter-bar { display: flex; gap: 10px; align-items: center; margin-bottom: 14px; flex-wrap: wrap; }

@@ -7,6 +7,7 @@ import { useAsync } from '../hooks/useAsync'
 import { api } from '../services/api'
 import { Badge, EmptyState, Panel, StatusBadge } from '../components/ui'
 import { daysUntil, formatDate, greeting, timeAgo } from '../utils/format'
+import { PROJECT_PROGRESS } from '../config'
 
 const toneByCategory = { academic: 'blue', event: 'gold', campus: 'green', sports: 'teal', placement: 'purple' } as const
 
@@ -34,7 +35,10 @@ export function DashboardPage({ navigate }: { navigate: (key: ModuleKey) => void
           <h1>{greeting()}, {user.name.replace(/^(Dr\.|Prof\.)\s*/, '').split(' ')[0]}!</h1>
           <p>Here’s what’s happening around your campus today.</p>
         </div>
-        <div className="campus-status"><span /><div><strong>Campus is open</strong><small>All services operating normally</small></div></div>
+        <div className="welcome-status">
+          <div className="campus-status"><span className="status-dev" /><div><strong>Project status</strong><small>{PROJECT_PROGRESS}% complete · Backend next</small></div></div>
+          <div className="campus-status"><span /><div><strong>Campus is open</strong><small>All services operating normally</small></div></div>
+        </div>
       </section>
 
       <section className="quick-grid">
