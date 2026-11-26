@@ -8,4 +8,4 @@
 export const REVIEW_MODE = false
 
 /** Overall completion shown on the dashboard. */
-export const PROJECT_PROGRESS = 40
+export const PROJECT_PROGRESS = 45
